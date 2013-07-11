@@ -7,12 +7,8 @@
 # update apt
 include_recipe "apt"
 
-# install apache2
-include_recipe "apache2"
-
 # install php
 include_recipe "php"
-include_recipe "apache2::mod_php5"
 
 package "php-apc" do
   action :install
@@ -57,8 +53,8 @@ end
 install_dir = node['tt-rss']['install_dir']
 
 directory install_dir do
-  owner node['apache']['user']
-  group node['apache']['group']
+  owner node['tt-rss']['user']
+  group node['tt-rss']['group']
   mode 0755
   action :create
 end
@@ -76,7 +72,7 @@ execute "unpack" do
 end
 
 execute "set permissions" do
-  command "chown -R #{node['apache']['user']}.#{node['apache']['group']} *"
+  command "chown -R #{node['tt-rss']['user']}.#{node['tt-rss']['group']} *"
   cwd install_dir
 end
 
@@ -89,8 +85,8 @@ template "config.php" do
       :url => node['tt-rss']['url']
   )
 
-  owner node['apache']['user']
-  group node['apache']['group']
+  owner node['tt-rss']['user']
+  group node['tt-rss']['group']
   mode 0600
 
   path "#{install_dir}/config.php"

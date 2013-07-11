@@ -12,3 +12,6 @@ default['tt-rss']['download-url'] = "https://github.com/gothfox/Tiny-Tiny-RSS/ar
 default['tt-rss']['server_name'] = "my-tinyrss.com"
 default['tt-rss']['url']         = "http://my-tinyrss.com"
 default['tt-rss']['install_dir'] = "/opt/tt-rss"
+
+default['tt-rss']['user'] = "www-data"
+default['tt-rss']['group'] = "www-data"
