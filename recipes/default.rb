@@ -99,8 +99,8 @@ template "config.php" do
 end
 
 # setup database scheme
-mysql_database database_name do
-  connection ({:host => "localhost", :username => 'root', :password => node['mysql']['server_root_password']})
-  sql { ::File.open("#{install_dir}/schema/ttrss_schema_mysql.sql").read }
-  action :query
-end
+#mysql_database database_name do
+#  connection ({:host => "localhost", :username => 'root', :password => node['mysql']['server_root_password']})
+#  sql { ::File.open("#{install_dir}/schema/ttrss_schema_mysql.sql").read }
+#  action :query
+#end
