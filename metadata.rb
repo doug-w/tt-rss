@@ -12,7 +12,6 @@ recipe "tt-rss::apache-site", "Add a dedicated apache site configuration for Tin
 end
 
 depends "apt"
-depends "apache2"
 depends "php", ">= 1.1.8"
 depends "mysql"
 depends "database"
